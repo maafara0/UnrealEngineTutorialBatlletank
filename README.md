@@ -9,4 +9,3 @@ MohammedMahdi Jahangiri
 ---
 Click [here](https://www.udemy.com/unrealcourse?couponCode=GitHubSpecial) to find out more about the course.
 
-## Lecture List
