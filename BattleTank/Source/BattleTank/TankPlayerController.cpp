@@ -16,10 +16,27 @@ void ATankPlayerController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("player controller possesing %s"), *ControlledTank->GetName())
 	}
-	UE_LOG(LogTemp, Warning, TEXT("player controller beign "))
 }
+
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	AimTowardsCrosshair();
+
+}
+	
 ATank* ATankPlayerController::GetControlledTank() const
 {
-	UE_LOG(LogTemp, Warning, TEXT("player controller beign play"))
 	return Cast<ATank>(GetPawn());
+}
+
+void ATankPlayerController::AimTowardsCrosshair()
+{
+	if (!GetControlledTank) 
+		return;
+
+	//get world location if linterace through crosshair
+	//if it hits the landscape
+		//Tell controlled tank to aim at this point
+	
 }

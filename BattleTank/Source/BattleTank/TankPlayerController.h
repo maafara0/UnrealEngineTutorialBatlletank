@@ -16,7 +16,14 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 public:
+	virtual void Tick(float DeltaTime) override;
+
 	ATank* GetControlledTank() const;
 
-	void virtual BeginPlay() override;
+	virtual void BeginPlay() override;
+
+private:
+	//start the tank moving battel so that a shot would hit where the 
+	//crosshair intersect the world
+	void ATankPlayerController::AimTowardsCrosshair()
 };
