@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Kismet/GameplayStatics.h"
+#include "CollisionQueryParams.h"
 #include "TankAimingComponent.h"
 
 // Sets default values for this component's properties
@@ -23,7 +25,7 @@ void UTankAimingComponent::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
@@ -35,9 +37,31 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget)
+void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
 {
-	FString OurTankName = GetOwner()->GetName();
-	FVector BarrelLocation = Barrel->GetComponentLocation();
-	UE_LOG(LogTemp, Warning, TEXT("%s aiming at aiming at %s from %s"), *OurTankName, *WorldSpaceAimTarget.ToString(), *BarrelLocation.ToString())
+	if (!Barrel) { return; }
+
+	FVector OutLaunchVelocity(0);
+	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
+	// Calculatet he outLaunchVelocity
+	if (UGameplayStatics::SuggestProjectileVelocity(
+		this,
+		OutLaunchVelocity,
+		StartLocation,
+		WorldSpaceAimTarget,
+		LaunchSpeed,
+		false,
+		0,
+		0,
+		ESuggestProjVelocityTraceOption::DoNotTrace)) 
+	{
+		FVector AimDirection = OutLaunchVelocity.GetSafeNormal(); 
+		FString TankName = GetOwner()->GetName();
+		UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s"),*TankName, *AimDirection.ToString())
+
+	}
+	else {
+		UE_LOG(LogTemp, Error, TEXT("FAILD"))
+	}
+
 }

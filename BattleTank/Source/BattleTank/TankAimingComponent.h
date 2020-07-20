@@ -26,7 +26,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void AimAt(FVector WorldSpaceAimTarget);
+	void AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed);
 
 private:
 	//Barrel

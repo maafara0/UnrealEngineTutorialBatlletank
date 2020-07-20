@@ -30,5 +30,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	 
 	void AimAt(FVector HitLocation);
-	void RotateTurrent();
+
+private:
+
+	UPROPERTY(EditAnywhere, Category = Fireing)
+		float LaunchSpeed = 100000; // TODO find sensible defult
 };
