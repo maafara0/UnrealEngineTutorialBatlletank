@@ -25,16 +25,9 @@ void ATank::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-	InputComponent->BindAction("Turrent_Clockwise", IE_Pressed, this, &ATank::RotateTurrent);
-}
 
-void ATank::RotateTurrent()
+void ATank::AimAt(FVector HitLocation)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Rotate initiated"))
-	//SetRelativeRotation
-	//UChildActorComponent
+	FString OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s"),*OurTankName, *HitLocation.ToString())
 }
