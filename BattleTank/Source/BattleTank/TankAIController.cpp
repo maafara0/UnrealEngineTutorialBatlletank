@@ -2,7 +2,8 @@
 
 
 #include "TankAIController.h"
-
+#include "AIController.h"
+#include "Tank.h"
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
