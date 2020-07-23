@@ -12,7 +12,7 @@ UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = false;
 
 	// ...
 }
@@ -54,6 +54,7 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
 	{
 		FVector AimDirection = OutLaunchVelocity.GetSafeNormal(); 
 		MoveBarrelTowards(AimDirection);
+		//MoveTurretTowards(AimDirection);
 		auto Time = GetWorld()->GetTimeSeconds();
 		UE_LOG(LogTemp, Warning, TEXT("%f: aim solution found"), Time)
 	}
@@ -75,5 +76,21 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DletaRotator = AimAsRotator - BarrelRotator;
 
 	Barrel->Elevate(DletaRotator.Pitch);
+	Turret->Rotate(DletaRotator.Yaw);
 
 }
+
+//void UTankAimingComponent::MoveTurretTowards(FVector AimDirection)
+//{
+//	// x vector rotation of Turret
+//	FRotator TurretRotator = Turret->GetUpVector().Rotation();
+//
+//	// converts Vector of aim direction to a rotator
+//	FRotator AimAsRotator = AimDirection.Rotation();
+//
+//	//difference between Turret rotation and desierd rotation
+//	auto DletaRotator = AimAsRotator - TurretRotator;
+//
+//	Turret->Rotate(DletaRotator.Yaw);
+//
+//}
