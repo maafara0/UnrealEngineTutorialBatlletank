@@ -3,6 +3,7 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 #include "CollisionQueryParams.h"
 #include "TankAimingComponent.h"
 
@@ -18,7 +19,18 @@ UTankAimingComponent::UTankAimingComponent()
 
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
+	if (!BarrelToSet) {
+		UE_LOG(LogTemp, Error, TEXT("Barrel not found")) return;
+	}
 	Barrel = BarrelToSet;
+}
+
+void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
+{
+	if (!TurretToSet) {
+		UE_LOG(LogTemp, Error, TEXT("Turret not found")) return;
+	}
+	Turret = TurretToSet;
 }
 
 void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
