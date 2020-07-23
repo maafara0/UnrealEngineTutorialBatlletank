@@ -62,6 +62,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	//difference between barrel rotation and desierd rotation
 	auto DletaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(1); // TODO remove magic number
+	Barrel->Elevate(DletaRotator.Pitch);
 
 }
