@@ -53,11 +53,15 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 {
-	//Gets the different rotation parameters
-	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
-	auto AimAsRotator = AimDirection.Rotation();
+	// x vector rotation of barrel
+	FRotator BarrelRotator = Barrel->GetForwardVector().Rotation();
+
+	// converts Vector of aim direction to a rotator
+	FRotator AimAsRotator = AimDirection.Rotation();
+
+	//difference between barrel rotation and desierd rotation
 	auto DletaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(5); // TODO remove magic number
+	Barrel->Elevate(1); // TODO remove magic number
 
 }
