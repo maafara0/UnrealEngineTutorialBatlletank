@@ -9,6 +9,7 @@
 class UTankTurret;
 class UTankBarrel;
 class UTankAimingComponent;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -16,8 +17,6 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	ATank();
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
@@ -37,7 +36,15 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
+	// Sets default values for this pawn's properties
+	ATank();
 
 	UPROPERTY(EditAnywhere, Category = Fireing)
-		float LaunchSpeed = 4000;
+	float LaunchSpeed = 4000;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlurePrint;
+
+	//loca barrel reference for projectile
+	UTankBarrel* Barrel = nullptr;
 };
