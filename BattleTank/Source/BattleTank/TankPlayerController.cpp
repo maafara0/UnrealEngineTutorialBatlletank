@@ -15,7 +15,7 @@ void ATankPlayerController::BeginPlay()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("player controller possesing %s"), *ControlledTank->GetName())
+		//UE_LOG(LogTemp, Warning, TEXT("player controller possesing %s"), *ControlledTank->GetName())
 	}
 }
 

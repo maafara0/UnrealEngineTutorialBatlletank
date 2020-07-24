@@ -56,10 +56,9 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
 		MoveBarrelTowards(AimDirection);
 		//MoveTurretTowards(AimDirection);
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: aim solution found"), Time)
 	}
 	else {
-		UE_LOG(LogTemp, Error, TEXT("FAILD"))
+		UE_LOG(LogTemp, Error, TEXT("FAILD To set calculate aim %f"), GetWorld()->GetTimeSeconds())
 	}
 
 }

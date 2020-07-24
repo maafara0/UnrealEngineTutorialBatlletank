@@ -15,7 +15,7 @@ void ATankAIController::BeginPlay()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController found player %s"), *PlayerTank->GetName())
+		//UE_LOG(LogTemp, Warning, TEXT("AIController found player %s"), *PlayerTank->GetName())
 	}
 	
 }
