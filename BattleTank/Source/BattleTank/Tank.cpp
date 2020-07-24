@@ -42,10 +42,12 @@ void ATank::AimAt(FVector HitLocation)
 
 void ATank::Fire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Fire"))
-
 	if (!Barrel) { return; }
 
 	//spawn projectile at the socket of projectile
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBlurePrint,Barrel->GetSocketLocation("Projectile"),Barrel->GetSocketRotation("Projectile"));
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+		ProjectileBlurePrint,
+		Barrel->GetSocketLocation("Projectile"),
+		Barrel->GetSocketRotation("Projectile"));
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
