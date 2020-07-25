@@ -14,14 +14,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankTrack.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankMovementComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/BattleTank/Projectile.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankAimingComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://S:/Program Files/Epic Games/UE_4.25/Engine/Source/Runtime/Core/Public/Math/Vector.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/BattleTank/Projectile.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankMovementComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankTrack.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankTurret.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/BattleTank/TankTurret.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Source/BattleTank/Projectile.cpp" />
+        <option value="$PROJECT_DIR$/Source/BattleTank/TankMovementComponent.h" />
+        <option value="$PROJECT_DIR$/Source/BattleTank/TankTurret.cpp" />
+        <option value="$PROJECT_DIR$/Source/BattleTank/TankTrack.cpp" />
+        <option value="$PROJECT_DIR$/Source/BattleTank/TankMovementComponent.cpp" />
       </list>
     </option>
   </component>
@@ -277,6 +288,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1237" height="267" key="GridCell.Tab.0.bottom" timestamp="1595684667061">
+      <screen x="1920" y="49" width="1280" height="994" />
+    </state>
+    <state width="1237" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1050/-1920.0.1920.1050/1920.49.1280.994@1920.49.1280.994" timestamp="1595684667061" />
+    <state width="1237" height="267" key="GridCell.Tab.0.center" timestamp="1595684667060">
+      <screen x="1920" y="49" width="1280" height="994" />
+    </state>
+    <state width="1237" height="267" key="GridCell.Tab.0.center/0.0.1920.1050/-1920.0.1920.1050/1920.49.1280.994@1920.49.1280.994" timestamp="1595684667060" />
+    <state width="1237" height="267" key="GridCell.Tab.0.left" timestamp="1595684667060">
+      <screen x="1920" y="49" width="1280" height="994" />
+    </state>
+    <state width="1237" height="267" key="GridCell.Tab.0.left/0.0.1920.1050/-1920.0.1920.1050/1920.49.1280.994@1920.49.1280.994" timestamp="1595684667060" />
+    <state width="1237" height="267" key="GridCell.Tab.0.right" timestamp="1595684667060">
+      <screen x="1920" y="49" width="1280" height="994" />
+    </state>
+    <state width="1237" height="267" key="GridCell.Tab.0.right/0.0.1920.1050/-1920.0.1920.1050/1920.49.1280.994@1920.49.1280.994" timestamp="1595684667060" />
     <state x="2061" y="190" key="SettingsEditor" timestamp="1595675937956">
       <screen x="1920" y="49" width="1280" height="994" />
     </state>
