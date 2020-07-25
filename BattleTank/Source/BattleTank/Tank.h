@@ -38,12 +38,17 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	UPROPERTY(EditAnywhere, Category = Fireing)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlurePrint;
+
+	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = Fireing)
 	float LaunchSpeed = 4000;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlurePrint;
+	UPROPERTY(EditAnywhere, Category = Fireing)
+	float ReloadTimeInSeconds = 3;
 
 	//loca barrel reference for projectile
 	UTankBarrel* Barrel = nullptr;
+
+	double LastTimerTime = 0;
 };
