@@ -58,7 +58,7 @@ void UTankAimingComponent::AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed)
 		auto Time = GetWorld()->GetTimeSeconds();
 	}
 	else {
-		UE_LOG(LogTemp, Error, TEXT("FAILD To set calculate aim %f"), GetWorld()->GetTimeSeconds())
+		//UE_LOG(LogTemp, Error, TEXT("FAILD To set calculate aim %f"), GetWorld()->GetTimeSeconds())
 	}
 
 }
