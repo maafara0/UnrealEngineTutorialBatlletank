@@ -3,8 +3,7 @@
 
 #include "TankMovementComponent.h"
 
-void UTankMovementComponent::IntedMoveForward(float Throw)
+void UTankMovementComponent::IntendMoveForward(float Throw)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"),Throw)
-    
+	UE_LOG(LogTemp, Warning, TEXT("INtend move forward: %f"), Throw)
 }
