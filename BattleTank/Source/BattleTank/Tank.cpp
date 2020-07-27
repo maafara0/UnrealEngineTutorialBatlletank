@@ -2,10 +2,7 @@
 
 
 #include "Tank.h"
-#include "TankBarrel.h"
-#include "Projectile.h"
 
-#define UFUNCTION
 // Sets default values
 ATank::ATank()
 {
@@ -20,21 +17,3 @@ void ATank::BeginPlay()
 	Super::BeginPlay();
 }
 
-void ATank::Fire()
-{
-	if(!ensure(Barrel)){
-	return;
-	}
-	bool isReloaded = FPlatformTime::Seconds() - LastTimerTime > ReloadTimeInSeconds;
-	if (isReloaded) {
-
-		//spawn projectile at the socket of projectile
-		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
-			ProjectileBlurePrint,
-			Barrel->GetSocketLocation("Projectile"),
-			Barrel->GetSocketRotation("Projectile"));
-		Projectile->LaunchProjectile(LaunchSpeed);
-
-		LastTimerTime = FPlatformTime::Seconds();
-	}
-}
