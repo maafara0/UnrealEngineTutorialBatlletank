@@ -25,7 +25,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
-	void AimAt(FVector WorldSpaceAimTarget, float LaunchSpeed);
+	void AimAt(FVector WorldSpaceAimTarget);
 
 	//TODO add set turrent rference
 
@@ -34,6 +34,10 @@ protected:
 	EFiringState FiringState = EFiringState::Reloading;
 
 private:
+
+	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
+	float LaunchSpeed = 4000;
+
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	//Barrel
@@ -43,7 +47,6 @@ private:
 
 	void MoveBarrelTowards(FVector AimDirection);
 
-	//void MoveTurretTowards(FVector AimDirection);
-
-
+	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
+	float LaunchSpeedd = 4000;
 };
