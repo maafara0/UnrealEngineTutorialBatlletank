@@ -47,6 +47,5 @@ private:
 
 	//loca barrel reference for projectile
 	UTankBarrel* Barrel = nullptr;
-
 	double LastTimerTime = 0;
 };

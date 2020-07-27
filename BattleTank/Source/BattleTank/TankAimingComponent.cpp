@@ -17,19 +17,9 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
+void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
-	if (!BarrelToSet) {
-		UE_LOG(LogTemp, Error, TEXT("Barrel not found")) return;
-	}
 	Barrel = BarrelToSet;
-}
-
-void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
-{
-	if (!TurretToSet) {
-		UE_LOG(LogTemp, Error, TEXT("Turret not found")) return;
-	}
 	Turret = TurretToSet;
 }
 
@@ -78,18 +68,3 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	Turret->Rotate(DletaRotator.Yaw);
 
 }
-
-//void UTankAimingComponent::MoveTurretTowards(FVector AimDirection)
-//{
-//	// x vector rotation of Turret
-//	FRotator TurretRotator = Turret->GetUpVector().Rotation();
-//
-//	// converts Vector of aim direction to a rotator
-//	FRotator AimAsRotator = AimDirection.Rotation();
-//
-//	//difference between Turret rotation and desierd rotation
-//	auto DletaRotator = AimAsRotator - TurretRotator;
-//
-//	Turret->Rotate(DletaRotator.Yaw);
-//
-//}
