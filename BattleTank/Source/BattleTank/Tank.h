@@ -18,15 +18,15 @@ class BATTLETANK_API ATank : public APawn
 
 public:
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetTurretReference(UTankTurret* TurretToSet);
 
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BlueprintCallable, Category = InGame)
+	UFUNCTION(BlueprintCallable, Category = "InGame")
 	void Fire();
 
 protected:
@@ -41,13 +41,13 @@ private:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlurePrint;
 
-	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = Fireing)
+	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
 	float LaunchSpeed = 4000;
 
-	UPROPERTY(EditAnywhere, Category = Fireing)
+	UPROPERTY(EditAnywhere, Category = "Fireing")
 	float ReloadTimeInSeconds = 3;
 
 	//loca barrel reference for projectile
