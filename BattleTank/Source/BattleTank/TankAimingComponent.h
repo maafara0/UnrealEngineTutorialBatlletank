@@ -36,8 +36,10 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
 	EFiringState FiringState = EFiringState::Reloading;
 
-private:
 
+private:
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)override;
+	virtual void BeginPlay() override;
 	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
 	float LaunchSpeed = 4000;
 
