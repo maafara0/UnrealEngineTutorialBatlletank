@@ -38,6 +38,8 @@ protected:
 
 
 private:
+	FVector AimDirection;
+
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)override;
 	virtual void BeginPlay() override;
 	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
@@ -50,8 +52,9 @@ private:
 
 	UTankTurret* Turret = nullptr;
 
-	void MoveBarrelTowards(FVector AimDirection);
+	void MoveBarrelTowards();
 
+	bool IsBarrelMoving();
 	//UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
 	//float LaunchSpeedd = 4000;
 
