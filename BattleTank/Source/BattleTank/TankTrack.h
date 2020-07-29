@@ -21,4 +21,14 @@ public:
 	//max force per track in neuton
 	UPROPERTY(EditAnywhere)
 	float TrackMaxDrivingForce = 400000;
+private:
+	UTankTrack();
+	virtual void BeginPlay() override;
+	//virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpluse, const FHitResult& Hit);
+	void ApplySidewaysForce();
+	void DriveTrack();
+	float CurrentThrottle = 0;
 };
