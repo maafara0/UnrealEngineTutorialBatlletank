@@ -17,7 +17,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
-	//UPROPERTY(Blue)
-	float AcceptanceRadious = 30;
+protected:
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float AcceptanceRadious = 8000;
+
+	//AI fire when locked bool
+	UPROPERTY(EditAnywhere, Category = "Fireing")
+		bool bFireOnLock = true;
 };

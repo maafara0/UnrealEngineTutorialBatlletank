@@ -34,9 +34,7 @@ public:
 
 	EFiringState GetFiringState() const;
 
-	//AI fire when locked bool
-	UPROPERTY(EditAnywhere, Category = "Fireing")
-	bool bFireOnLock = true;
+
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
 	EFiringState FiringState = EFiringState::Reloading;
