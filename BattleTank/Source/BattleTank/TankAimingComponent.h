@@ -32,6 +32,11 @@ public:
 
 	//TODO add set turrent rference
 
+	EFiringState GetFiringState() const;
+
+	//AI fire when locked bool
+	UPROPERTY(EditAnywhere, Category = "Fireing")
+	bool bFireOnLock = true;
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
 	EFiringState FiringState = EFiringState::Reloading;
@@ -43,7 +48,7 @@ private:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)override;
 	virtual void BeginPlay() override;
 	UPROPERTY(EditDefaultsOnly/*Edit on BP file only*/, Category = "Fireing")
-	float LaunchSpeed = 4000;
+	float LaunchSpeed = 20000;
 
 	// Sets default values for this component's properties
 	UTankAimingComponent();
@@ -63,6 +68,8 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Fireing")
 	float ReloadTimeInSeconds = 3;
+
+
 
 	//loca barrel reference for projectile
 	double LastTimerTime = 0;
