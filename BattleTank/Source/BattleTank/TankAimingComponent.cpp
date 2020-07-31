@@ -19,7 +19,10 @@ UTankAimingComponent::UTankAimingComponent()
 }
 void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-	if ((FPlatformTime::Seconds() - LastTimerTime) < ReloadTimeInSeconds)
+	if (Ammo <= 0) {
+		FiringState = EFiringState::OutOfAmmo;
+	}
+	else if ((FPlatformTime::Seconds() - LastTimerTime) < ReloadTimeInSeconds)
 	{
 		FiringState = EFiringState::Reloading;
 	}
@@ -31,12 +34,17 @@ void UTankAimingComponent::TickComponent(float DeltaTime, enum ELevelTick TickTy
 	{
 		FiringState = EFiringState::Locked;
 	}
-
+	
 }
 
 EFiringState UTankAimingComponent::GetFiringState() const
 {
 	return FiringState;
+}
+
+int UTankAimingComponent::GetAmmo() const
+{
+	return Ammo;
 }
 
 void UTankAimingComponent::BeginPlay()
@@ -98,27 +106,30 @@ void UTankAimingComponent::MoveBarrelTowards()
 	auto DletaRotator = AimAsRotator - BarrelRotator;
 
 	Barrel->Elevate(DletaRotator.Pitch);
-
-	Turret->Rotate(DletaRotator.Yaw);
-
+	if(FMath::Abs(DletaRotator.Yaw) < 180)
+		Turret->Rotate(DletaRotator.Yaw);
+	else
+		Turret->Rotate(-DletaRotator.Yaw);
 }
 
 void UTankAimingComponent::Fire()
 {
 	bool isReloaded = FPlatformTime::Seconds() - LastTimerTime > ReloadTimeInSeconds;
-	if (FiringState != EFiringState::Reloading) {
+	if (FiringState == EFiringState::Locked || FiringState == EFiringState::Aiming) {
+			//spawn projectile at the socket of projectile
+			if (!ensure(Barrel && ProjectileBlurePrint)) { return; }
+			auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+				ProjectileBlurePrint,
+				Barrel->GetSocketLocation("Projectile"),
+				Barrel->GetSocketRotation("Projectile"));
+			Projectile->LaunchProjectile(LaunchSpeed);
 
-		//spawn projectile at the socket of projectile
-		if (!ensure(Barrel && ProjectileBlurePrint)) { return; }
-		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
-			ProjectileBlurePrint,
-			Barrel->GetSocketLocation("Projectile"),
-			Barrel->GetSocketRotation("Projectile"));
-		Projectile->LaunchProjectile(LaunchSpeed);
+			LastTimerTime = FPlatformTime::Seconds();
 
-		LastTimerTime = FPlatformTime::Seconds();
+			Ammo--;
+		}
 	}
-}
+
 
 bool UTankAimingComponent::IsBarrelMoving()
 {

@@ -10,7 +10,8 @@ UENUM()
 enum class EFiringState : uint8 {
 	Reloading, 
 	Aiming, 
-	Locked};
+	Locked,
+	OutOfAmmo};
 
 class UTankBarrel;
 class UTankTurret;
@@ -30,9 +31,10 @@ public:
 
 	void AimAt(FVector WorldSpaceAimTarget);
 
-	//TODO add set turrent rference
-
 	EFiringState GetFiringState() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Fireing")
+	int GetAmmo() const;
 
 
 protected:
@@ -67,7 +69,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Fireing")
 	float ReloadTimeInSeconds = 3;
 
-
+	int Ammo = 3;
 
 	//loca barrel reference for projectile
 	double LastTimerTime = 0;
