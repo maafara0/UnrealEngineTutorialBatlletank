@@ -34,7 +34,7 @@ public:
 	EFiringState GetFiringState() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Fireing")
-	int GetAmmo() const;
+	int32 GetAmmo() const;
 
 
 protected:
@@ -69,7 +69,8 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Fireing")
 	float ReloadTimeInSeconds = 3;
 
-	int Ammo = 3;
+	UPROPERTY(EditAnywhere, Category = "Fireing")
+	int32 Ammo = 3;
 
 	//loca barrel reference for projectile
 	double LastTimerTime = 0;
