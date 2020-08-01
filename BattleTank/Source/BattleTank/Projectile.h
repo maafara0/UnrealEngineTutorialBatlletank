@@ -26,21 +26,28 @@ public:
 	// Called every frame
 
 	void LaunchProjectile(float speed);
-
+	//for blueprint
+	UPROPERTY(BlueprintReadOnly, Category = "Components")
+	UStaticMeshComponent* CollisionMesh = nullptr;
 private:
 	UProjectileMovementComponent* ProjectileMovement = nullptr;
-	UPROPERTY(VisibleAnywhere, Category = "Components")
+	/*UPROPERTY(VisibleAnywhere, Category = "Components")
 	UStaticMeshComponent* CollisionMesh = nullptr;
 
-	//UPROPERTY(VisibleAnywhere, Category = "Components")
-	//UParticleSystemComponent* LaunchBlast = nullptr;
-	//UPROPERTY(VisibleAnywhere, Category = "Components")
-	//UParticleSystemComponent* ImpactBlast = nullptr;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UParticleSystemComponent* LaunchBlast = nullptr;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UParticleSystemComponent* ImpactBlast = nullptr;
 
-	//UPROPERTY(VisibleAnywhere, Category = "Components")
-	//URadialForceComponent* ExplosionForce = nullptr;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	URadialForceComponent* ExplosionForce = nullptr;
 
-	//UFUNCTION()
-	//void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpluse, const FHitResult& Hit);
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpluse, const FHitResult& Hit);
 
+	void OnTimerExpire();
+
+	UFUNCTION(EditDefaultsOnly, Category = "Setup")
+	float DestroyDelay = 10f;
+	*/
 };
