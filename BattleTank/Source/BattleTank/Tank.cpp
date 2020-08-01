@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Tank.h"
 
 // Sets default values
@@ -28,4 +27,9 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEve
 	}
 	UE_LOG(LogTemp, Warning,TEXT("DamageAmount = %f, DamageToApply=%i"), DamageAmount, DamageToApply)
 	return DamageToApply;
+}
+
+float ATank::GetHealthPercent() const
+{
+	return (float)CurrentHealth / (float)StartingHealth;
 }

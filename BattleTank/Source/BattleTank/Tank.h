@@ -21,6 +21,10 @@ public:
 		class AController* EventInstigator,
 		AActor* DamageCauser
 	) override ;
+
+	//Health between 0 and 1 for percent in the health bar
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent() const;
 	
 protected:
 	// Called when the game starts or when spawned
