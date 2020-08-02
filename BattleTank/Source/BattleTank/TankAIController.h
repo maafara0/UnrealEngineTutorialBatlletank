@@ -17,6 +17,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//virtual void DetachFromControllerPendingDestroy();
 protected:
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
@@ -24,5 +25,12 @@ protected:
 
 	//AI fire when locked bool
 	UPROPERTY(EditAnywhere, Category = "Fireing")
-		bool bFireOnLock = true;
+	bool bFireOnLock = true;
+
+private:
+
+	virtual void SetPawn(APawn* InPawn) override;
+	UFUNCTION()
+	void OnDeathCalled();
+
 };
