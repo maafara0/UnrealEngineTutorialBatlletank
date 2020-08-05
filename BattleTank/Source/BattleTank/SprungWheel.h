@@ -29,13 +29,14 @@ public:
 
 private:
 	void SetupConstraint();
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-	USphereComponent* Wheel = nullptr;
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-	USphereComponent* Axle = nullptr;
 
+	// Components
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
+		USphereComponent* Wheel = nullptr;
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UPhysicsConstraintComponent* PhysicsConstraint = nullptr;
+		USphereComponent* Axle = nullptr;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
 };
