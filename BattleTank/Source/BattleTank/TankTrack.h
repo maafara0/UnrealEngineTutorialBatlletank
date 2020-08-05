@@ -23,12 +23,9 @@ public:
 	float TrackMaxDrivingForce = 40000000.0;
 private:
 	UTankTrack();
-	virtual void BeginPlay() override;
-	//virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void BeginPlay() override; 
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpluse, const FHitResult& Hit);
-	void ApplySidewaysForce();
-	void DriveTrack();
-	float CurrentThrottle = 0;
+	TArray<class ASprungWheel*> GetWheels() const;
+
+	void DriveTrack(float CurrentThrottle);
 };
